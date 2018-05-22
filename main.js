@@ -66,7 +66,8 @@ function compareAnswers(playerSelection, computerSelection)
 
 function playRound(playerSelection, computerSelection)
 {
-    return compareAnswers(playerSelection, computerSelection);
+    let result = compareAnswers(playerSelection, computerSelection);
+    return result;
 }
 
 function checkForValidAnswer(playerSelection)
@@ -86,27 +87,59 @@ function checkForValidAnswer(playerSelection)
     return playerSelection;
 }
 
-function checkWinnter()
+function countWins(result, playerWins, computerWins)
 {
+    let returnObjWins = {};
 
+    if (result.includes("Win"))
+    {
+        playerWins++;
+    }
+    else if (result.includes("Lose"))
+    {
+        computerWins++;
+    }
+    returnObjWins.playerWins = playerWins;
+    returnObjWins.computerWins = computerWins;
+    return returnObjWins;
+}
 
+function declareWinner(playerWins, computerWins)
+{
+    if (playerWins > computerWins)
+    {
+        console.log('You win the Game!');
+    }
+    else if (computerWins > playerWins)
+    {
+        console.log('Computer wins the Game!');
+    }
+    else
+    {
+        console.log('The game is a Tie!');
+    }
+    return
 }
 
 function game()
 {
     console.log('Best out of 5 Wins!')
-    let count = 0;
+    let playerWins = 0;
+    let computerWins = 0;
+    let winsCount = {};
     for (let i = 0; i < 5; i++)
     {
-        count++;
         let playerSelection;
         playerSelection = checkForValidAnswer(playerSelection);
         const computerSelection = computerPlay();
+        let result = playRound(playerSelection, computerSelection);
         console.log(playRound(playerSelection, computerSelection));
+        winsCount = countWins(result, playerWins, computerWins);
+        playerWins = winsCount.playerWins;
+        computerWins = winsCount.computerWins;
     }
+    console.log('Player: ' + playerWins + ' - ' + 'Computer: ' + computerWins);
+    declareWinner(playerWins, computerWins);
 }
-
-
-
 
 game();
