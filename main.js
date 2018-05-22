@@ -89,7 +89,7 @@ function checkForValidAnswer(playerSelection)
 
 function countWins(result, playerWins, computerWins)
 {
-    let returnObjWins = {};
+    let objectWins = {};
 
     if (result.includes("Win"))
     {
@@ -99,9 +99,9 @@ function countWins(result, playerWins, computerWins)
     {
         computerWins++;
     }
-    returnObjWins.playerWins = playerWins;
-    returnObjWins.computerWins = computerWins;
-    return returnObjWins;
+    objectWins.playerWins = playerWins;
+    objectWins.computerWins = computerWins;
+    return objectWins;
 }
 
 function declareWinner(playerWins, computerWins)
@@ -133,7 +133,9 @@ function game()
         playerSelection = checkForValidAnswer(playerSelection);
         const computerSelection = computerPlay();
         let result = playRound(playerSelection, computerSelection);
+
         console.log(playRound(playerSelection, computerSelection));
+
         winsCount = countWins(result, playerWins, computerWins);
         playerWins = winsCount.playerWins;
         computerWins = winsCount.computerWins;
