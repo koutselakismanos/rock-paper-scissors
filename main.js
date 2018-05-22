@@ -17,50 +17,50 @@ function computerPlay()
 
 function compareAnswers(playerSelection, computerSelection)
 {
-    switch (playerSelection)
+    if (playerSelection == 'rock')
     {
-        case "rock":
-            switch (computerSelection)
-            {
-                case "Rock":
-                    return 'Tie!';
-                    break;
-                case "Paper":
-                    return "You Lose! Paper beats Rock";
-                    break;
-                case "Scissors":
-                    return "You Win! Rock beats Scissors"
-                    break;
-            }
-            break;
-        case "paper":
-            switch (computerSelection)
-            {
-                case "Rock":
-                    return "You Win! Paper beats Rock";
-                    break;
-                case "Paper":
-                    return "Tie!";
-                    break;
-                case "Scissors":
-                    return "You Lose! Scissors beats Paper"
-                    break;
-            }
-            break;
-        case "scissors":
-            switch (computerSelection)
-            {
-                case "Rock":
-                    return "You Lose! Rock beats Scissors";
-                    break;
-                case "Paper":
-                    return "You Win! Scissors beats Paper";
-                    break;
-                case "Scissors":
-                    return "Tie!"
-                    break;
-            }
-            break;
+        switch (computerSelection)
+        {
+            case "Rock":
+                return 'Tie!';
+                break;
+            case "Paper":
+                return "You Lose! Paper beats Rock";
+                break;
+            case "Scissors":
+                return "You Win! Rock beats Scissors"
+                break;
+        }
+    }
+    else if (playerSelection == 'paper')
+    {
+        switch (computerSelection)
+        {
+            case "Rock":
+                return "You Win! Paper beats Rock";
+                break;
+            case "Paper":
+                return "Tie!";
+                break;
+            case "Scissors":
+                return "You Lose! Scissors beats Paper"
+                break;
+        }
+    }
+    else if (playerSelection == 'scissors')
+    {
+        switch (computerSelection)
+        {
+            case "Rock":
+                return "You Lose! Rock beats Scissors";
+                break;
+            case "Paper":
+                return "You Win! Scissors beats Paper";
+                break;
+            case "Scissors":
+                return "Tie!"
+                break;
+        }
     }
 }
 
