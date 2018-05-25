@@ -144,4 +144,4 @@ function game()
     declareWinner(playerWins, computerWins);
 }
 
-game();
+// game();
