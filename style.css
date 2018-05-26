@@ -38,11 +38,13 @@ body{
     position: relative;
     display: inline-block;
     transition: 0.2s;
+    color: #FF6B6B;
 }
 .icon-frame:hover{
     width: 300px;
     height: 205px;
     background-color: rgb(158, 63, 63);
+    color: white;
 }
 
 
@@ -50,4 +52,20 @@ body{
     width: 200px;
     position: relative;
     top: 20px;
+}
+
+.score{
+    background-color: white;
+    width: 300px;
+    margin: 0 auto;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 3px;
+}
+.score h5{
+    display: inline-block;
+    margin: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
 }
