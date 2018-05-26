@@ -34,14 +34,14 @@ body{
     background-color: #FF6B6B;
     width: 200px;
     height: 200px;
-    margin: 50px;
+    margin: 30px;
     position: relative;
     display: inline-block;
     transition: 0.2s;
     color: #FF6B6B;
 }
 .icon-frame:hover{
-    width: 300px;
+    width: 250px;
     height: 205px;
     background-color: rgb(158, 63, 63);
     color: white;

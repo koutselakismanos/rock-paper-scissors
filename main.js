@@ -1,3 +1,26 @@
+const playerScore = document.querySelector('.player-score');
+const computerScore = document.querySelector('.computer-score');
+
+const rockButton = document.querySelector('.rock-button');
+const paperButton = document.querySelector('.paper-button');
+const scissorsButton = document.querySelector('.scissors-button');
+
+
+rockButton.addEventListener('click', function (e)
+{
+    game('rock');
+});
+
+paperButton.addEventListener('click', function (e)
+{
+    game('paper');
+});
+
+scissorsButton.addEventListener('click', function (e)
+{
+    game('scissors');
+});
+
 function computerPlay()
 {
     let randomNumber = Math.ceil(Math.random() * 3);
@@ -70,22 +93,22 @@ function playRound(playerSelection, computerSelection)
     return result;
 }
 
-function checkForValidAnswer(playerSelection)
-{
-    do
-    {
-        if (playerSelection != null)
-        {
-            alert('Please give a Valid answer!');
-        }
-        playerSelection = prompt("Rock/Paper/Scissors").toLocaleLowerCase();
+// function checkForValidAnswer(playerSelection)
+// {
+//     // do
+//     // {
+//     //     if (playerSelection != null)
+//     //     {
+//     //         alert('Please give a Valid answer!');
+//     //     }
+//     //     playerSelection = prompt("Rock/Paper/Scissors").toLocaleLowerCase();
 
-    } while (playerSelection != 'rock' &&
-    playerSelection != 'paper' &&
-        playerSelection != 'scissors')
+//     // } while (playerSelection != 'rock' &&
+//     // playerSelection != 'paper' &&
+//     //     playerSelection != 'scissors')
 
-    return playerSelection;
-}
+//     return playerSelection;
+// }
 
 function countWins(result, playerWins, computerWins)
 {
@@ -121,27 +144,36 @@ function declareWinner(playerWins, computerWins)
     return
 }
 
-function game()
+let playerWins = 0;
+let computerWins = 0;
+let winsCount = {};
+
+function game(playerSelection)
 {
     console.log('Best out of 5 Wins!')
-    let playerWins = 0;
-    let computerWins = 0;
-    let winsCount = {};
-    for (let i = 0; i < 5; i++)
-    {
-        let playerSelection;
-        playerSelection = checkForValidAnswer(playerSelection);
-        const computerSelection = computerPlay();
-        let result = playRound(playerSelection, computerSelection);
+    // for (let i = 0; i < 5; i++)
+    // {
+    // let playerSelection;
+    // playerSelection = checkForValidAnswer(playerSelection);
+    const computerSelection = computerPlay();
+    let result = playRound(playerSelection, computerSelection);
 
-        console.log(playRound(playerSelection, computerSelection));
+    console.log(playRound(playerSelection, computerSelection));
 
-        winsCount = countWins(result, playerWins, computerWins);
-        playerWins = winsCount.playerWins;
-        computerWins = winsCount.computerWins;
-    }
+    winsCount = countWins(result, playerWins, computerWins);
+    playerWins = winsCount.playerWins;
+    computerWins = winsCount.computerWins;
+
+    playerScore.textContent = `Player: ${playerWins}`;
+    computerScore.textContent = `Computer: ${computerWins}`;
+    // }
     console.log('Player: ' + playerWins + ' - ' + 'Computer: ' + computerWins);
     declareWinner(playerWins, computerWins);
+    if (playerWins >= 5 || computerWins >= 5)
+    {
+        playerWins = 0;
+        computerWins = 0;
+    }
 }
 
 // game();
