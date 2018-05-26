@@ -9,14 +9,17 @@
 
 <body>
     <div class="content">
+
         <div class="game">
-            <h1 class="title">Rock - Paper - Scissors</h1>
+            <h1 class="title">Rock - Paper - Scissors
+                <span>(Best of 5)</span>
+            </h1>
             <div class="icon-frame">
                 <img class="icon rock-button" src="images/rock.svg" alt="rock">
                 <h5>Rock</h5>
             </div>
             <div class="icon-frame">
-                <img class="icon paper-button" src="images/scissors.svg" alt="paper">
+                <img class="icon paper-button" src="images/paper.svg" alt="paper">
                 <h5>Paper</h5>
             </div>
             <div class="icon-frame">
@@ -28,6 +31,13 @@
                 <h5> - </h5>
                 <h5 class="computer-score">Computer: 0</h5>
             </div>
+            <div class="score-2">
+                <h5></h5>
+            </div>
+        </div>
+        <div class="popup">
+            <h1 class="final-message"></h1>
+            <button>Reset Game</button>
         </div>
         <script src="main.js"></script>
 </body>

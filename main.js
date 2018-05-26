@@ -5,6 +5,11 @@ const rockButton = document.querySelector('.rock-button');
 const paperButton = document.querySelector('.paper-button');
 const scissorsButton = document.querySelector('.scissors-button');
 
+const roundResult = document.querySelector('.score-2 h5');
+const finalResult = document.querySelector('.popup');
+const finalMessage = document.querySelector('.final-message');
+const finalResultButton = document.querySelector('.popup button');
+
 
 rockButton.addEventListener('click', function (e)
 {
@@ -20,6 +25,12 @@ scissorsButton.addEventListener('click', function (e)
 {
     game('scissors');
 });
+
+finalResultButton.addEventListener('click', function (e)
+{
+    resetGame();
+});
+
 
 function computerPlay()
 {
@@ -131,17 +142,19 @@ function declareWinner(playerWins, computerWins)
 {
     if (playerWins > computerWins)
     {
+        return ('You win the Game!');
         console.log('You win the Game!');
     }
     else if (computerWins > playerWins)
     {
+        return ('Computer wins the Game!');
         console.log('Computer wins the Game!');
     }
     else
     {
+        return ('The game is a Tie!');
         console.log('The game is a Tie!');
     }
-    return
 }
 
 let playerWins = 0;
@@ -157,8 +170,9 @@ function game(playerSelection)
     // playerSelection = checkForValidAnswer(playerSelection);
     const computerSelection = computerPlay();
     let result = playRound(playerSelection, computerSelection);
+    roundResult.textContent = result;
 
-    console.log(playRound(playerSelection, computerSelection));
+    console.log(result);
 
     winsCount = countWins(result, playerWins, computerWins);
     playerWins = winsCount.playerWins;
@@ -168,12 +182,26 @@ function game(playerSelection)
     computerScore.textContent = `Computer: ${computerWins}`;
     // }
     console.log('Player: ' + playerWins + ' - ' + 'Computer: ' + computerWins);
-    declareWinner(playerWins, computerWins);
+
     if (playerWins >= 5 || computerWins >= 5)
     {
-        playerWins = 0;
-        computerWins = 0;
+        popup(declareWinner(playerWins, computerWins));
     }
+}
+
+function popup(message)
+{
+    finalResult.style.visibility = 'visible';
+    finalMessage.textContent = message;
+}
+
+function resetGame()
+{
+    playerWins = 0;
+    computerWins = 0;
+    playerScore.textContent = `Player: ${playerWins}`;
+    computerScore.textContent = `Computer: ${computerWins}`;
+    finalResult.style.visibility = 'hidden';
 }
 
 // game();
