@@ -11,25 +11,12 @@ const finalMessage = document.querySelector('.final-message');
 const finalResultButton = document.querySelector('.popup button');
 
 
-rockButton.addEventListener('click', function (e)
-{
-    game('rock');
-});
+rockButton.addEventListener('click', e => game('rock'));
 
-paperButton.addEventListener('click', function (e)
-{
-    game('paper');
-});
+paperButton.addEventListener('click', e => game('paper'));
 
-scissorsButton.addEventListener('click', function (e)
-{
-    game('scissors');
-});
-
-finalResultButton.addEventListener('click', function (e)
-{
-    resetGame();
-});
+scissorsButton.addEventListener('click', e => game('scissors'));
+finalResultButton.addEventListener('click', e => resetGame());
 
 
 function computerPlay()
