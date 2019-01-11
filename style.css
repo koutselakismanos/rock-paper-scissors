@@ -49,6 +49,7 @@ body{
     height: 205px;
     background-color: rgb(158, 63, 63);
     color: white;
+    cursor: -webkit-grab;
 }
 
 
